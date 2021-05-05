@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 public class AlteraEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		System.out.println("Alterando empresa");
-		
+
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa = request.getParameter("data");
 		String paramId = request.getParameter("id");
@@ -29,17 +30,16 @@ public class AlteraEmpresaServlet extends HttpServlet {
 		} catch (java.text.ParseException e) {
 			throw new ServletException(e);
 		}
-		
+
 		System.out.println(id);
-		
+
 		Banco banco = new Banco();
 		Empresa empresa = banco.buscaEmpresaPelaId(id);
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dataAbertura);
-		
+
 		response.sendRedirect("listaEmpresas");
-		
-		
+
 	}
 
 }
