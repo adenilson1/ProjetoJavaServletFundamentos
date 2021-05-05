@@ -3,6 +3,7 @@ package br.com.ad.gerencia.servlet;
 import java.util.Date;
 
 public class Empresa {
+	
 	private Integer id;
 	private String nome;
 	private Date dataAbertura =  new Date();
